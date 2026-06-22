@@ -1,21 +1,23 @@
 import UserBadge from "../molecules/UserBadge";
 import { User } from "@/src/types/User";
+import Logo from "../atoms/Logo";
+import LoginButton from "../atoms/LoginButton";
+import UserOptions from "../molecules/UserOptions";
+
+export default async function Header({ user }: { user: User | undefined }) {
 
 
-const user : User = {
-    uuid: "1111-1111-1111-1111",
-    name: "Arthur",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=761",
-}
-
-export default function Header () {
     return (
-        <header>
-            <UserBadge 
-                user={user}
+        <header className="flex w-full justify-between items-center px-16 py-5 bg-white-system shadow-md">
+            <UserBadge
+                user={user ? user : undefined}
             />
-            <h1>WEG</h1>
+            <Logo />
+            {user ?
+                <UserOptions />
+                :
+                <LoginButton />
+            }
         </header>
     )
-
 }
