@@ -1,6 +1,13 @@
+import logo from '../../../public/logo.svg';
+import Image from 'next/image';
+
 
 export default function Logo () {
     return (
-        <h1 className="text-4xl font-bold text-blue-700 cursor-default">WEG</h1>
+        <Image
+            src={logo}
+            alt="Logo of the WEG Company"
+            height="50"
+        />
     )
 }

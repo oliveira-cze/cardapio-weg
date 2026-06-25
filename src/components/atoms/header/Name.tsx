@@ -1,7 +1,7 @@
 export default function Name({name} : {name : string | undefined}) {
     return (
         <p 
-            className={"text-xl w-30 cursor-default "}
+            className={"text-xl min-w-30 w-fit cursor-default "}
         >
             {name ? `${name}` : "Guest"}
         </p>
