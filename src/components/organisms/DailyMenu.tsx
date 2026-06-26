@@ -1,7 +1,8 @@
 import { Dish } from "@/src/types/Dish";
 import DishGroup from "../molecules/DishGroup";
+import WeekDay from "../atoms/WeekDay";
 
-export default async function DailyMenu() {
+export default async function DailyMenu({ day }: { day: string }) {
 
     function selectDishes(dishes: Dish[], quantity: number) {
 
@@ -11,7 +12,7 @@ export default async function DailyMenu() {
 
         const selectDishes = new Set<Dish>(fixedDishes)
 
-        while (selectDishes.size < quantity){
+        while (selectDishes.size < quantity) {
             const index = Math.floor(Math.random() * dishes.length);
             const randomDish = dishes[index]
 
@@ -25,26 +26,31 @@ export default async function DailyMenu() {
     const dishes = await response.json()
 
     return (
-        <div
-            className="grid grid-cols-4 gap-4"
-        >
-            
-            <DishGroup
-                dishes={selectDishes(dishes.filter((dish: Dish) => {return dish.categoria === "Carnes"}), 3)}
-
+        <div>
+            <WeekDay
+                day={day}
             />
-            <DishGroup
-                dishes={selectDishes(dishes.filter((dish: Dish) => {return dish.categoria === "Entradas" || dish.categoria === "Saladas"}), 4)}
+            <div
+                className="grid grid-cols-4 gap-4"
+            >
 
-            />
-            <DishGroup
-                dishes={selectDishes(dishes.filter((dish: Dish) => {return dish.categoria === "Acompanhamentos"}), 4)}
+                <DishGroup
+                    dishes={selectDishes(dishes.filter((dish: Dish) => { return dish.categoria === "Carnes" }), 3)}
 
-            />
-            <DishGroup
-                dishes={selectDishes(dishes.filter((dish: Dish) => {return dish.categoria === "Sobremesas"}), 2)}
+                />
+                <DishGroup
+                    dishes={selectDishes(dishes.filter((dish: Dish) => { return dish.categoria === "Entradas" || dish.categoria === "Saladas" }), 4)}
 
-            />
+                />
+                <DishGroup
+                    dishes={selectDishes(dishes.filter((dish: Dish) => { return dish.categoria === "Acompanhamentos" }), 4)}
+
+                />
+                <DishGroup
+                    dishes={selectDishes(dishes.filter((dish: Dish) => { return dish.categoria === "Sobremesas" }), 2)}
+
+                />
+            </div>
         </div>
     )
 }
