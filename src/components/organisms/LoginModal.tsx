@@ -1,4 +1,4 @@
-import FormButton from "../atoms/FormButton";
+import FormButton from "../atoms/form/FormButton";
 import FormField from "../molecules/FormField";
 import { login } from "../../app/actions"
 import Logo from "../atoms/Logo";

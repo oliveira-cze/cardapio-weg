@@ -1,3 +1,9 @@
 export default function Admin () {
-    return "exemplo"
+    return (
+        <main
+            className="bg-white-system h-screen"
+        >
+
+        </main>
+    )
 }

@@ -1,3 +1,4 @@
+import Footer from "@/src/components/organisms/Footer";
 import Header from "../../components/organisms/Header";
 import { User } from "../../types/User";
 import "../globals.css"
@@ -20,6 +21,7 @@ export default async function MainRoutesLayout({
                     user={user}
                 />
                 {children}
+                <Footer/>
             </>
     );
 }
