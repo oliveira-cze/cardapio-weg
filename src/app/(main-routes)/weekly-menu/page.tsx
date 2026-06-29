@@ -8,7 +8,7 @@ export default function WeeklyMenu() {
             className="bg-white-system flex flex-col items-center py-8 pb-10"
         >
             <div
-                className="grid grid-rows-5 gap-y-10 px-24"
+                className="grid grid-rows-5 gap-y-10 px-26"
             >
                 {days.map((day) => {
                     return (
