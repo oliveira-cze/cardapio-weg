@@ -13,6 +13,7 @@ export default function WeeklyMenu() {
                 {days.map((day) => {
                     return (
                         <DailyMenu
+                            key={day}
                             day={day}
                         />
                     )
